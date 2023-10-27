@@ -1,27 +1,17 @@
-const net = require('net');
+const http = require('http');
 
-const server = net.createServer((socket) => {
-    console.log('Connection from', socket.remoteAddress, 'port', socket.remotePort);
+const server = http.createServer((req, res) => {
+  console.log(`Received request from ${req.socket.remoteAddress}:${req.socket.remotePort}`);
 
-    socket.on('data', (data) => {
-        console.log('Data received:', data.toString());
-        // Additional logic for data handling goes here
-    });
+  // Process the request here...
 
-    socket.on('error', (err) => {
-        console.error(`Error: ${err.message}`);
-    });
+  // Send a response back
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello, world!\n');
 
-    socket.on('close', () => {
-        console.log('Connection closed:', socket.remoteAddress, 'port', socket.remotePort);
-    });
+  // The connection will automatically close after sending the response
 });
 
-const PORT = 6000;
-server.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-});
-
-server.on('error', (err) => {
-    console.error(`Server error: ${err.message}`);
+server.listen(6000, () => {
+  console.log('Server running on port 6000');
 });
