@@ -1,0 +1,23 @@
+{
+  "name": "gps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amtechsci/GPS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amtechsci/GPS/issues"
+  },
+  "homepage": "https://github.com/amtechsci/GPS#readme",
+  "dependencies": {
+    "net": "^1.0.2"
+  }
+}

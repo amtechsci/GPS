@@ -1,31 +1,27 @@
 const net = require('net');
 
-// Create a TCP server
 const server = net.createServer((socket) => {
-  console.log('Client connected');
+    console.log('Connection from', socket.remoteAddress, 'port', socket.remotePort);
 
-  socket.on('data', (data) => {
-    console.log('Data received from the GPS tracker: ');
-    console.log(data.toString());
-    // Here, add your data parsing and handling logic
-  });
+    socket.on('data', (data) => {
+        console.log('Data received:', data.toString());
+        // Additional logic for data handling goes here
+    });
 
-  socket.on('end', () => {
-    console.log('Client disconnected');
-  });
+    socket.on('error', (err) => {
+        console.error(`Error: ${err.message}`);
+    });
 
-  socket.on('error', (err) => {
-    console.error(`Error: ${err}`);
-  });
+    socket.on('close', () => {
+        console.log('Connection closed:', socket.remoteAddress, 'port', socket.remotePort);
+    });
 });
 
-// Specify the port to listen on
 const PORT = 6000;
 server.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+    console.log(`Server listening on port ${PORT}`);
 });
 
-// Error handling
 server.on('error', (err) => {
-  throw err;
+    console.error(`Server error: ${err.message}`);
 });
