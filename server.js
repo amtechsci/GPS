@@ -12,6 +12,6 @@ const server = http.createServer((req, res) => {
   // The connection will automatically close after sending the response
 });
 
-server.listen(6000, () => {
+server.listen(80, () => {
   console.log('Server running on port 6000');
 });
