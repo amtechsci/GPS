@@ -3,10 +3,10 @@ const mysql = require('mysql');
 
 // MySQL connection setup
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'yourUsername', // Replace with your MySQL username
-  password: 'yourPassword', // Replace with your MySQL password
-  database: 'exampleDB'
+  host: '217.21.95.154',
+  user: 'u623876688_axs', // Replace with your MySQL username
+  password: 'q1F|/X9wL[N', // Replace with your MySQL password
+  database: 'u623876688_axs'
 });
 
 connection.connect(err => {
